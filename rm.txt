@@ -1,0 +1,35 @@
+20250123
+
+人员安排有变动时需注意对groups.xlsx的调整
+
+groups.xlsx:
+etc行：包括不在组内的情况
+special列：返聘、均奖、不在岗
+
+summarizing.py:
+实现了对以上情况的筛选判断
+
+20250129
+
+summarizing.py:
+支持任意组中对“不在岗”、“均奖”、"返聘" 的情况的识别判断
+revenue_summary类中self.df_groups根据人员列表排除其它
+收入比例文件 0_merged_ratio.xlsx 的 index 都根据人员列表设定和读取
+增加输出平均绩效为文本文件
+增加部分输出文件保存后自动打开
+
+20250220
+
+“医生全勤”改为“医生出勤”
+bonus_calculator 函数：
+增加 df_filtered 去重功能
+增加“组系数”、“科系数”参数
+groups.xlsx:
+拉回PG和PW列，分别 为“组系数”、“科系数”，1 为全奖，0 为零奖，0 - 1 为相对比例，空值等价于1
+
+20250222
+
+提取了一些函数
+get_df_groups(path)
+staff_info(path)
+info_df_gb(df_doctors_info)
